@@ -6,33 +6,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Review Respond - Stop Dreading Reviews. Start Using Them.t</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;700&family=Inter:wght@700;900&display=swap"
-        rel="stylesheet">
-
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#d5daeb', // Light Gray/White
-                        secondary: '#ee4266', // Bright Red/Pink (Your Pink)
-                        accent: '#1c1259', // Deep Blue/Purple
-                        highlight: '#fcd307', // Gold/Yellow (Your Yellow)
-                        steel: '#475569', // Slate Steel Grey (Background)
-                    },
-                    fontFamily: {
-                        inter: ['Inter', 'sans-serif'],
-                        dmsans: ['DM Sans', 'sans-serif'],
-                    },
-                }
-            }
+    <style>
+        /* Base Reset and Typography */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-    </script>
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #d5daeb;
+            color: #000;
+        }
+
+        /* Color Variables */
+        :root {
+            --primary: #d5daeb;
+            --secondary: #ee4266;
+            --accent: #1c1259;
+            --highlight: #fcd307;
+            --steel: #475569;
+        }
+
+        /* Navigation Styles */
+        nav {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background-color: var(--accent);
+            z-index: 50;
+            border-bottom: 8px solid var(--secondary);
+            padding: 1rem;
+        }
+
+        nav .container {
+            max-width: 72rem;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a.logo {
+            font-size: 1.875rem;
+            font-weight: 900;
+            color: var(--highlight);
+            text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.8);
+            letter-spacing: -0.05em;
+            text-decoration: none;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        nav .nav-links a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        nav .nav-links .btn-pricing {
+            background-color: var(--secondary);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border: 5px solid #000;
+            box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.9);
+            display: inline-block;
+        }
+
+        nav .nav-links .btn-pricing:hover {
+            background-color: var(--highlight);
+            color: var(--accent);
+        }
+
+        /* Section Styles */
+        section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--steel);
+            color: var(--primary);
+            padding: 1.5rem;
+        }
+
+        section .text-center {
+            text-align: center;
+            width: 100%;
+            max-width: 96rem;
+        }
+
+        section .max-w-8xl {
+            max-width: 96rem;
+        }
+    </style>
 
     <style>
         /* Brutalist Base Styles */
@@ -223,24 +302,23 @@
     </style>
 </head>
 
-<body class="font-dmsans bg-primary text-black">
+<body>
 
-    <nav class="sticky top-0 w-full bg-accent z-50 border-b-8 border-secondary p-4">
-        <div class="container mx-auto flex justify-between items-center max-w-6xl">
-            <a href="#" class="text-3xl font-inter font-black text-highlight text-shadow-brutal tracking-tighter">
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">
                 REVIEW RESPOND
             </a>
-            <div class="space-x-4 text-sm font-dmsans font-bold uppercase tracking-wide">
-                <a href="#calculator" class="text-primary hover:text-secondary transition-colors">Calculator</a>
-                <a href="#pricing"
-                    class="bg-secondary text-primary px-4 py-2 border-brutal hover:bg-highlight hover:text-accent shake-on-hover inline-block">Pricing</a>
+            <div class="nav-links">
+                <a href="#calculator">Calculator</a>
+                <a href="#pricing" class="btn-pricing shake-on-hover">Pricing</a>
             </div>
         </div>
     </nav>
 
 
-    <section class="min-h-screen flex flex-col items-center justify-center bg-steel text-primary p-6">
-        <div class="text-center w-full max-w-8xl">
+    <section>
+        <div class="text-center max-w-8xl">
 
             <div class="marketing-content-block">
                 <h1 class="pink-headline">Stop Dreading Reviews<br>
