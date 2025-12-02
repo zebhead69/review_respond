@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Respond - Stop Dreading Reviews. Start Using Them.t</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;700&family=Inter:wght@700;900&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#d5daeb', // Light Gray/White
+                        secondary: '#ee4266', // Bright Red/Pink (Your Pink)
+                        accent: '#1c1259', // Deep Blue/Purple
+                        highlight: '#fcd307', // Gold/Yellow (Your Yellow)
+                        steel: '#475569', // Slate Steel Grey (Background)
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                        dmsans: ['DM Sans', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Brutalist Base Styles */
+        .pulse-damage {
+            animation: pulseDamage 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulseDamage {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.02);
+                opacity: 0.9;
+            }
+        }
+
+        .gold-shimmer {
+            animation: goldShimmer 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes goldShimmer {
+            0% {
+                box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.9);
+            }
+
+            50% {
+                box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.9), 0 0 10px rgba(252, 211, 3, 0.7);
+            }
+
+            100% {
+                box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.9);
+            }
+        }
+
+        .shake-on-hover:hover {
+            animation: shake 0.5s;
+        }
+
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            10%,
+            30%,
+            50%,
+            70%,
+            90% {
+                transform: translateX(-5px);
+            }
+
+            20%,
+            40%,
+            60%,
+            80% {
+                transform: translateX(5px);
+            }
+        }
+
+        .text-shadow-brutal {
+            text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.8);
+        }
+
+        .border-brutal {
+            border: 5px solid #000;
+            box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.9);
+        }
+
+        /* Brutalist Table Styling */
+        .brutal-table th,
+        .brutal-table td {
+            border: 3px solid #000;
+            padding: 12px;
+            text-align: center;
+        }
+
+        /* --- TELETEXT SPECIFIC STYLES --- */
+
+        /* Container for the new content block */
+        .marketing-content-block {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* 1. Big Pink Bold Writing (Custom Class for the new headline) */
+        .pink-headline {
+            color: #ee4266;
+            /* secondary (Bright Red/Pink) */
+            font-family: 'Inter', sans-serif;
+            font-size: 4em;
+            font-weight: 900;
+            margin-bottom: 5px;
+            /* Reduced space above the teletext */
+            line-height: 1.1;
+        }
+
+        /* 2. Teletext Strip (The Moving Banner) */
+        .teletext-strip {
+            background-color: #000000;
+            /* Black strip background */
+            overflow: hidden;
+            /* Hides content outside the strip area */
+            width: 100%;
+            height: 30px;
+            /* Fixed height for the banner */
+            line-height: 30px;
+            /* Centers the text vertically */
+            margin-bottom: 25px;
+            /* Space below the teletext */
+            border-top: 2px solid #fcd307;
+            /* highlight (Gold/Yellow) */
+            border-bottom: 2px solid #fcd307;
+        }
+
+        .teletext-content {
+            color: #fcd307;
+            /* highlight (Yellow teletext font) */
+            font-family: monospace;
+            /* Simple, stark font, like teletext */
+            font-size: 1em;
+            /* Small writing */
+            white-space: nowrap;
+            /* Ensures text stays on one line */
+            animation: scroll-left 15s linear infinite;
+            /* Start the animation */
+        }
+
+        /* Define the scrolling movement */
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(100%);
+                /* Start off-screen right */
+            }
+
+            100% {
+                transform: translateX(-100%);
+                /* Move all the way off-screen left */
+            }
+        }
+
+        /* 3. The Warning Text */
+        .warning-text {
+            font-size: 1.5em;
+            /* Thought-provoking size */
+            font-weight: 600;
+            line-height: 1.4;
+            color: #1c1259;
+            /* accent (Deep Blue/Purple) */
+            margin-bottom: 40px;
+        }
+
+        /* 4. Conclusion and Pitch */
+        .stats-and-pitch h2 {
+            color: #ee4266;
+            /* secondary (Pink sub-headline) */
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .stat-block {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px auto;
+            border: 2px solid #000;
+        }
+
+        .stat-block p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .pitch-conclusion {
+            font-size: 1.2em;
+            margin-top: 30px;
+            color: #1c1259;
+            /* accent */
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body class="font-dmsans bg-primary text-black">
+
+    <nav class="sticky top-0 w-full bg-accent z-50 border-b-8 border-secondary p-4">
+        <div class="container mx-auto flex justify-between items-center max-w-6xl">
+            <a href="#" class="text-3xl font-inter font-black text-highlight text-shadow-brutal tracking-tighter">
+                REVIEW RESPOND
+            </a>
+            <div class="space-x-4 text-sm font-dmsans font-bold uppercase tracking-wide">
+                <a href="#calculator" class="text-primary hover:text-secondary transition-colors">Calculator</a>
+                <a href="#pricing"
+                    class="bg-secondary text-primary px-4 py-2 border-brutal hover:bg-highlight hover:text-accent shake-on-hover inline-block">Pricing</a>
+            </div>
+        </div>
+    </nav>
+
+
+    <section class="min-h-screen flex flex-col items-center justify-center bg-steel text-primary p-6">
+        <div class="text-center w-full max-w-8xl">
+
+            <div class="marketing-content-block">
+                <h1 class="pink-headline">Stop Dreading Reviews<br>
+                Start Using Them</h1>
