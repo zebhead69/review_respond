@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MeteorStrike - Claim Your Unclaimed Income</title>
+
+    <!-- Load Google Fonts: Inter (Bold/Black) and DM Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;700&family=Inter:wght@700;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Load Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#d5daeb', // Light Gray/White
+                        secondary: '#ee4266', // Bright Red/Pink
+                        accent: '#1c1259', // Deep Blue/Purple
+                        highlight: '#fcd307', // Gold/Yellow
+                        steel: '#475569',   // Slate Steel Grey (Added for Background)
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                        dmsans: ['DM Sans', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS Styles (Brutalism Effects) -->
+    <style>
+        .pulse-damage {
+            animation: pulseDamage 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulseDamage {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.02);
+                opacity: 0.9;
+            }
+        }
+
+        .gold-shimmer {
+            animation: goldShimmer 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes goldShimmer {
+            0% {
+                box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.9);
+            }
+
+            50% {
+                box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.9), 0 0 10px rgba(252, 211, 3, 0.7);
+            }
+
+            100% {
+                box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.9);
+            }
+        }
+
+        .shake-on-hover:hover {
+            animation: shake 0.5s;
+        }
+
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            10%,
+            30%,
+            50%,
+            70%,
+            90% {
+                transform: translateX(-5px);
+            }
+
+            20%,
+            40%,
+            60%,
+            80% {
+                transform: translateX(5px);
+            }
+        }
+
+        .text-shadow-brutal {
+            text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.8);
+        }
+
+        .border-brutal {
+            border: 5px solid #000;
+            box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.9);
+        }
+
+        /* Brutalist Table Styling */
+        .brutal-table th,
+        .brutal-table td {
+            border: 3px solid #000;
+            padding: 12px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body class="font-dmsans bg-primary text-black">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 w-full bg-accent z-50 border-b-8 border-secondary p-4">
+        <div class="container mx-auto flex justify-between items-center max-w-6xl">
+            <!-- Updated Font to Inter for Logo -->
+            <a href="#" class="text-3xl font-inter font-black text-highlight text-shadow-brutal tracking-tighter">
+                METEORSTRIKE
+            </a>
+            <div class="space-x-4 text-sm font-dmsans font-bold uppercase tracking-wide">
+                <a href="#calculator" class="text-primary hover:text-secondary transition-colors">Calculator</a>
+                <a href="#pricing"
+                    class="bg-secondary text-primary px-4 py-2 border-brutal hover:bg-highlight hover:text-accent shake-on-hover inline-block">Pricing</a>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Section 1: The Hero (Slate Steel Grey Background) -->
+    <!-- Changed bg-accent to bg-steel -->
+    <section class="min-h-screen flex flex-col items-center justify-center bg-steel text-primary p-6">
+        <div class="text-center w-full max-w-5xl">
+
+            <!-- Line 1: Small White Text -->
+            <p class="text-white text-sm md:text-lg font-dmsans font-bold uppercase tracking-widest mb-6">
+                64% of business owners ignore their online reviews
+            </p>
+
+            <!-- Line 2: Big Pink Text (Brutalist Style) -->
+            <!-- Corrected spelling and applied Brutalist classes -->
+            <h1
+                class="text-5xl md:text-7xl lg:text-8xl font-inter font-black text-secondary text-shadow-brutal border-brutal bg-white p-8 inline-block transform -rotate-2">
+                CONGRATULATIONS<br>
+                ON BEING AVERAGE
+            </h1>
+
+        </div>
+    </section>
+
+    <!-- Section 2: The Reality Check (Slate/Steel Background) -->
+    <section class="min-h-screen flex flex-col items-center justify-center bg-steel py-20 border-b-8 border-black">
+        <div class="container mx-auto px-6 text-center max-w-5xl">
+
+            <!-- Intro Statement -->
+            <p class="text-primary font-dmsans font-bold uppercase tracking-widest text-sm md:text-base mb-4">
+                Your competitors are replying. You're not.
+            </p>
+
+            <!-- Highlight Box -->
+            <div class="inline-block bg-highlight border-brutal transform rotate-1 mb-12">
+                <h2 class="text-2xl md:text-4xl font-inter font-black text-black px-4 py-2 uppercase">
+                    Guess who's getting the business?
+                </h2>
+            </div>
+
+            <!-- The Scenario -->
+            <div class="bg-primary border-brutal p-8 md:p-12 mb-12 relative">
+                <!-- Decorative "X" mark -->
+                <div
+                    class="absolute -top-6 -right-6 bg-secondary text-white w-12 h-12 flex items-center justify-center font-black border-brutal text-2xl z-10">
+                    X</div>
+
+                <h3 class="text-xl md:text-2xl font-dmsans font-bold text-accent mb-4">
+                    Another Unanswered Review. Another Lost Customer.
+                </h3>
+                <p class="font-dmsans text-lg text-black mb-6">
+                    You spent <span class="bg-secondary text-white px-1">£500</span> on advertising to get them through
+                    the
+                    door.
+                    They came and left a review, but you ignored it.
+                </p>
+
+                <!-- THE BIG WRITING -->
+                <h1
+                    class="text-5xl md:text-7xl font-inter font-black text-secondary leading-none text-shadow-brutal uppercase my-8">
+                    Basically you paid for<br>
+                    someone to slag you<br>
+                    off online
+                </h1>
+
+                <p class="text-accent font-bold font-dmsans text-xl uppercase mt-8">
+                    How Will It Feel When They Ignore You Back?
+                </p>
+            </div>
+
+            <!-- Stats Grid (Side by Side) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <!-- Stat 1 -->
+                <div class="bg-white border-brutal p-6 transform -rotate-1 hover:rotate-0 transition-transform">
+                    <span class="block text-6xl font-inter font-black text-accent mb-2">60%</span>
+                    <p class="font-dmsans font-bold text-black text-lg">
+                        would <span class="bg-secondary text-white px-1">never use</span> the business again if their
+                        complaint was ignored.
+                    </p>
+                </div>
+                <!-- Stat 2 -->
+                <div class="bg-white border-brutal p-6 transform rotate-1 hover:rotate-0 transition-transform">
+                    <span class="block text-6xl font-inter font-black text-highlight text-shadow-brutal mb-2">90%</span>
+                    <p class="font-dmsans font-bold text-black text-lg">
+                        are more likely to <span class="bg-highlight text-black px-1">use a business</span> that replies
+                        to
+                        its reviews.
+                    </p>
+                </div>
+            </div>
+
+            <!-- CTA Button -->
+            <div>
+                <a href="#problem"
+                    class="bg-secondary hover:bg-highlight text-primary hover:text-accent font-inter font-black text-2xl px-10 py-5 border-brutal shake-on-hover inline-block uppercase tracking-wider transition-colors">
+                    WAKE UP
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: The Problem / Stats (Light Background) -->
+    <section id="problem"
+        class="min-h-screen flex items-center justify-center bg-primary py-20 border-b-8 border-black">
+        <div class="container mx-auto px-6 text-center">
+
+            <div class="max-w-5xl mx-auto">
+                <!-- Section Header -->
+                <h2 class="text-4xl md:text-6xl font-inter font-black text-accent mb-12 uppercase">
+                    The Cost of Silence
+                </h2>
+
+                <!-- 3 Columns Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                    <!-- Card 1 -->
+                    <div
+                        class="bg-white p-8 border-brutal shadow-[8px_8px_0px_rgba(0,0,0,1)] hover:translate-y-1 hover:shadow-none transition-all">
+                        <h3 class="text-6xl font-inter font-black text-secondary mb-4">89%</h3>
+                        <p class="font-dmsans font-bold text-black text-lg">
+                            of consumers read businesses' responses to reviews
+                        </p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div
+                        class="bg-accent p-8 border-brutal shadow-[8px_8px_0px_rgba(238,66,102,1)] hover:translate-y-1 hover:shadow-none transition-all">
+                        <h3 class="text-6xl font-inter font-black text-highlight mb-4">57%</h3>
+                        <p class="font-dmsans font-bold text-white text-lg">
+                            won't use a business that doesn't respond to complaints
+                        </p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div
+                        class="bg-highlight p-8 border-brutal shadow-[8px_8px_0px_rgba(0,0,0,1)] hover:translate-y-1 hover:shadow-none transition-all">
+                        <h3 class="text-6xl font-inter font-black text-accent mb-4">9x</h3>
+                        <p class="font-dmsans font-bold text-black text-lg">
+                            more likely to choose businesses that respond to negative reviews
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-16">
+                    <a href="https://zebhead-meteorstrike-calculator.static.hf.space/"
+                        class="bg-white text-black hover:bg-secondary hover:text-white font-inter font-black text-xl px-8 py-4 border-brutal inline-block transition-colors uppercase">
+                        CALCULATE YOUR LOSSES
+                    </a>
+                </div>
+            </div>
+            <!-- Section 2: WE VALUE YOUR FEEDBACK (Highlight BG) -->
+            <section class="min-h-screen flex items-center justify-center bg-highlight text-accent">
+                <div class="container mx-auto px-6 text-center">
+                    <h2 class="text-5xl md:text-7xl font-Inter mb-6">"We Value Your Feedback"</h2>
+                    <p class="text-3xl md:text-4xl font-Inter text-secondary mb-12">
+                        Isn't a Strategy <br class="hidden md:block">
+                        <span class="text-2xl opacity-90">(Especially when you proceed to ignore it)</span>
+                    </p>
+
+                    <div class="max-w-3xl mx-auto">
+                        <p class="text-xl mb-8 font-bold uppercase tracking-widest">Customers see through bullshit</p>
+                        <div
+                            class="bg-secondary p-8 text-primary shadow-brutal border-2 border-primary transform -rotate-1">
+                            <p class="text-2xl font-urbanist font-bold">
+                                Customers are <span class="text-highlight bg-accent px-2">42% more likely</span>
+                                to leave a negative review if they feel ignored.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: THE UNDENIABLE PROOF & PAIN (Light Gray BG) -->
+            <section
+                class="min-h-screen flex flex-col items-center justify-center bg-primary text-accent p-10 border-t-8 border-accent">
+
+                <!-- Headline -->
+                <h2
+                    class="text-4xl md:text-6xl font-urbanist font-extrabold text-accent mb-12 text-shadow-brutal text-center uppercase">
+                    The Response Quality Test
+                </h2>
+
+                <!-- The Comic Book Speech Bubble Complaint -->
+                <div class="container mx-auto px-6 max-w-xl mb-16 relative">
+                    <div
+                        class="speech-bubble bg-white border-4 border-black p-6 rounded-xl shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative">
+                        <!-- decorative triangle for speech bubble -->
+                        <div
+                            class="absolute -bottom-4 left-10 w-8 h-8 bg-white border-r-4 border-b-4 border-black transform rotate-45">
+                        </div>
+
+                        <p class="text-sm font-bold text-gray-500 uppercase tracking-wide mb-2">Angry Customer · 2 hours
+                            ago</p>
+                        <p class="text-2xl italic font-black text-accent leading-tight">
+                            "The food was cold, the order was wrong, and the server was completely arrogant."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Three Response Columns -->
+                <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mb-16">
+
+                    <!-- COLUMN 1: THE IGNORER -->
+                    <div
+                        class="border-brutal shadow-brutal p-6 bg-white hover:translate-y-1 transition-transform duration-200">
+                        <h3
+                            class="text-2xl font-urbanist font-black mb-4 text-secondary border-b-4 border-secondary pb-2">
+                            OPTION 1: THE GHOST
+                        </h3>
+                        <div
+                            class="bg-secondary text-primary p-4 h-32 flex items-center justify-center border-2 border-dashed border-primary/20">
+                            <p class="font-bold text-lg text-center">BUSINESS RESPONSE:<br>No response. Silence.</p>
+                        </div>
+                        <p class="text-center text-sm font-black mt-4 text-secondary uppercase tracking-widest">Outcome:
+                            Customer
+                            Bails.</p>
+                    </div>
+
+                    <!-- COLUMN 2: THE GENERIC -->
+                    <div
+                        class="border-brutal shadow-brutal p-6 bg-white hover:translate-y-1 transition-transform duration-200">
+                        <h3
+                            class="text-2xl font-urbanist font-black mb-4 text-secondary border-b-4 border-secondary pb-2">
+                            OPTION 2: THE ROBOT
+                        </h3>
+                        <div class="bg-gray-200 text-accent p-4 h-32 flex items-center border-2 border-gray-300">
+                            <p class="font-bold text-sm leading-snug">
+                                ↳ "Thanks for your feedback. We value your input and will look into this matter
+                                internally." <br>-
+                                Management
+                            </p>
+                        </div>
+                        <p class="text-center text-sm font-black mt-4 text-secondary uppercase tracking-widest">Outcome:
+                            Customer
+                            more angry.</p>
+                    </div>
+
+                    <!-- COLUMN 3: METEORSTRIKE -->
+                    <div
+                        class="border-brutal shadow-brutal p-6 bg-white relative overflow-hidden transform md:-translate-y-4 md:border-accent">
+                        <div
+                            class="absolute top-0 right-0 bg-highlight text-accent text-xs font-bold px-2 py-1 border-l-2 border-b-2 border-accent">
+                            WINNER</div>
+                        <h3
+                            class="text-2xl font-urbanist font-black mb-4 text-highlight bg-accent px-2 py-1 inline-block -ml-2">
+                            OPTION 3: METEORSTRIKE
+                        </h3>
+                        <div class="bg-highlight text-accent p-4 h-32 flex items-center border-2 border-accent">
+                            <p class="font-bold text-sm leading-snug">
+                                ↳ "We're genuinely sorry. Cold food and arrogance is unacceptable. We'll contact you
+                                directly to
+                                refund and apologize."
+                            </p>
+                        </div>
+                        <p
+                            class="text-center text-sm font-black mt-4 text-highlight bg-accent py-1 uppercase tracking-widest">
+                            Outcome: Retained & Upgraded.</p>
+                    </div>
+                </div>
+
+                <!-- CTA Button (Centered Outside Grid) -->
+                <div class="w-full text-center mb-24">
+                    <a href="https://zebhead-meteorstrike-calculator.static.hf.space/"
+                        class="bg-accent hover:bg-secondary text-highlight hover:text-primary font-urbanist font-bold text-2xl px-10 py-5 rounded-none transition-all duration-300 inline-block border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1">
+                        SEE WHAT IT'S COSTING YOU
+                    </a>
+                </div>
+
+                <!-- Bottom Section: Conversational Pain Points -->
+                <div class="container mx-auto px-6 max-w-5xl">
+                    <div class="text-center mb-16">
+                        <h3
+                            class="text-3xl md:text-5xl font-Inter font-black text-secondary mb-6 text-shadow-brutal leading-tight">
+                            "Too busy" isn't good enough. Your competitors have dedicated departments for this.
+                        </h3>
+                        <p
+                            class="text-xl md:text-2xl font-roboto font-bold text-accent border-b-8 border-accent inline-block pb-2">
+                            At last, you have a level playing field.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+
+                        <!-- PAIN POINT 1: Value Extraction -->
+                        <div class="border-brutal p-8 bg-white shadow-brutal h-full flex flex-col justify-between">
+                            <div>
+                                <h4 class="font-urbanist text-2xl font-black text-secondary mb-4">
+                                    Your customers are handing you free business advice.
+                                </h4>
+                                <p class="text-md text-gray-700 font-medium leading-relaxed">
+                                    Every review tells you something valuable: your lamb karahi is legendary,
+                                    parking's a nightmare, or customers want Sunday opening.
+                                </p>
+                            </div>
+                            <div class="mt-6 pt-6 border-t-2 border-gray-200">
+                                <p class="text-sm font-bold text-accent">
+                                    We respond professionally AND extract the intelligence that matters. Reviews aren't
+                                    admin.
+                                    They're your competitive advantage.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- PAIN POINT 2: Time Sensitivity -->
+                        <div class="border-brutal p-8 bg-white shadow-brutal h-full flex flex-col justify-between">
+                            <div>
+                                <h4 class="font-urbanist text-2xl font-black text-secondary mb-4">
+                                    Leaving 1-star reviews to marinate for months?
+                                </h4>
+                                <p class="text-md text-gray-700 font-medium leading-relaxed">
+                                    One-star reviews aren't disasters. <span
+                                        class="italic text-red-600 font-bold">Ignored</span>
+                                    one-star reviews are.
+                                </p>
+                            </div>
+                            <div class="mt-6 pt-6 border-t-2 border-gray-200">
+                                <p class="text-sm font-bold text-accent">
+                                    We handle it within 2 hours: acknowledge the problem, explain what happened, give
+                                    them a reason
+                                    to try again. Turn "never going back" into "maybe I'll give them another chance."
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>/section>
+            <!-- What You're Losing Section -->
+            <section class="min-h-screen flex items-center justify-center bg-secondary text-accent">
+                <div class="container mx-auto px-6 text-center">
+
+                    <p class="text-3xl md:text-3xl font-inter text-accent mb-12">
+                        You spent £500 on advertising to get them through the door<br>
+                        They came and left a review but you ignored it<br>
+                    <p class="text-3xl md:text-3l font-inter mb-6">Another Unanswered Review. Another Lost Customer.
+                        </h2>
+                    <h2>Basically you paid for someone to slag you off online<h /2></h>
+                        </p>
+                        h2div class="max-w-3xl mx-auto bg-accent p-8 text-primary">
+                        <p class="text-xl mb-6">How Will It Feel When They Ignore You Back?</p>
+                        <a href="/pricing"
+                            class="bg-secondary hover:bg-highlight text-primary font-urbanist text-xl px-8 py-4 rounded-none transition-all duration-300 inline-block">STOP
+                            THE BLEEDING</a>
+                </div>
+        </div>
+    </section>
+
+    <!-- The Hypocrisy Section -->
+    <section class="min-h-screen flex items-center justify-center bg-highlight text-accent">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-5xl md:text-7xl font-urbanist mb-6">"We Value Your Feedback"</h2>
+            <p class="text-3xl md:text-4xl font-urbanist text-secondary mb-12">[Proceeds to Ignore It]</p>
+            <div class="max-w-2xl mx-auto">
+                <p class="text-xl mb-8">Sound familiar? Your customers see through the bullshit. Empty platitudes won't
+                    save your sinking ship.</p>
+                <div class="bg-secondary p-6 text-primary mb-8">
+                    <p class="text-2xl font-urbanist">Customers are <span class="text-highlight">42% more likely</span>
+                        to leave a negative review if they feel ignored</p>
+                </div>
+                <a href="https://zebhead-meteorstrike-calculator.static.hf.space/"
+                    class="bg-accent hover:bg-secondary text-highlight hover:text-primary font-urbanist text-xl px-8 py-4 rounded-none transition-all duration-300 inline-block border-2 border-accent">SEE
+                    WHAT IT'S COSTING YOU</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Wake-Up Call Section -->
+    <section
+        class="min-h-screen flex items-center justify-center bg-[url('http://static.photos/red/1200x630/1')] bg-cover bg-center">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-5xl md:text-7xl font-urbanist mb-6 text-highlight">You're Losing Customers While You Sleep
+            </h2>
+            <p class="text-3xl md:text-4xl font-urbanist text-primary mb-12">We're not</p>
+            <div class="max-w-xl mx-auto bg-accent p-8 text-primary">
+                <p class="text-xl mb-6">Our team works 24/7 to monitor and respond to every review, so you don't have to
+                    lose sleep over lost customers.</p>
+                <div class="flex flex-col md:flex-row gap-4 justify-center">
+                    <a href="https://zebhead-meteorstrike-calculator.static.hf.space/"
+                        class="bg-highlight hover:bg-primary text-accent hover:text-accent font-urbanist text-xl px-8 py-4 rounded-none transition-all duration-300 inline-block">HOW
+                        MUCH AM I LOSING?</a>
+                    <a href="/pricing"
+                        class="bg-secondary hover:bg-highlight text-primary font-urbanist text-xl px-8 py-4 rounded-none transition-all duration-300 inline-block">GET
+                        PROTECTION</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-20 bg-accent text-primary">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-6xl font-urbanist mb-6 text-secondary">Stop Pretending You'll Reply Later</h2>
+            <p class="text-2xl md:text-3xl font-urbanist text-primary mb-12">You won't. We will.</p>
+            <div class="max-w-md mx-auto">
+                <form class="bg-primary p-8">
+                    <input type="email" placeholder="Your Email"
+                        class="w-full px-4 py-3 mb-4 border-2 border-accent bg-transparent text-accent">
+                    <button type="submit"
+                        class="w-full bg-secondary hover:bg-highlight text-primary font-urbanist text-xl px-8 py-4 rounded-none transition-all duration-300">SIGN
+                        ME UP</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <custom-footer></custom-footer>
+    <script src="script.js"></script>
+    <script src="https://huggingface.co/deepsite/deepsite-badge.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MeteorStrike - Stop Ignoring Your Customers</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Configuration (Uses your custom colors/fonts) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#d5daeb', // Light Gray/White
+                        secondary: '#ee4266', // Bright Red/Pink (Loss/Bleeding)
+                        accent: '#1c1259', // Deep Blue/Purple (Dark Text)
+                        highlight: '#fcd307', // Gold/Yellow (Warning/Goldmine)
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'], // Added Inter for small text
+                        roboto: ['Roboto', 'sans-serif'],
+                        urbanist: ['Urbanist', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS Styles (Your Animations and Brutalism Effects) -->
+    <style>
+        .pulse-damage {
+            animation: pulseDamage 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulseDamage {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.02);
+                opacity: 0.9;
+            }
+        }
+
+        /* New CSS for the Sparkle/Shimmer Effect on the Gold Bar */
+        .gold-shimmer {
+            animation: goldShimmer 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes goldShimmer {
+            0% {
+                box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.9);
+            }
+
+            50% {
+                /* Adds a subtle, temporary yellow glow to simulate sparkle */
+                box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.9), 0 0 10px rgba(252, 211, 3, 0.7);
+            }
+
+            100% {
+                box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.9);
+            }
+        }
+
+        .shake-on-hover:hover {
+            animation: shake 0.5s;
+        }
+
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            10%,
+            30%,
+            50%,
+            70%,
+            90% {
+                transform: translateX(-5px);
+            }
+
+            20%,
+            40%,
+            60%,
+            80% {
+                transform: translateX(5px);
+            }
+        }
+
+        .text-shadow-brutal {
+            text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.8);
+        }
+
+        .border-brutal {
+            border: 5px solid #000;
+            box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.9);
+        }
+    </style>
+</head>
+
+<body class="font-roboto">
+
+    <!-- Section 1: CONGRATULATIONS ON BEING AVERAGE (Dark Blue BG, Pink/Red Text) -->
+    <section class="min-h-screen flex flex-col items-center justify-center bg-accent text-primary p-6">
+        <div class="text-center w-full max-w-4xl">
+            <!-- Small Inter Text (Light Gray) -->
+            <p class="font-inter text-base md:text-xl font-normal mb-4 text-primary">
+                64% of businesses ignore their customer reviews
+            </p>
+            <!-- Big Urbanist Text (Pink/Red) -->
+            <h1
+                class="text-5xl md:text-8xl font-urbanist text-secondary font-black text-shadow-brutal border-brutal p-4 inline-block">
+                CONGRATULATIONS ON BEING AVERAGE
+            </h1>
+        </div>
+    </section>
+
+    <!-- Section 2: GUESS WHO'S GETTING THE BUSINESS? (Light Gray/White BG, Dark Blue Text) -->
+    <section
+        class="min-h-screen flex flex-col items-center justify-center bg-primary text-accent p-6 border-t-8 border-accent">
+        <div class="text-center w-full max-w-4xl">
+            <!-- Small writing -->
+            <p class="font-roboto text-sm md:text-lg mb-4 text-accent">
+                Only 12% of businesses respond consistently to their reviews
+            </p>
+            <!-- Big writing -->
+            <h2 class="text-5xl md:text-8xl font-urbanist font-extrabold text-accent text-shadow-brutal">
+                GUESS WHO'S GETTING THE BUSINESS?
+            </h2>
+        </div>
+    </section>
+
+    <!-- Section 3: THE EVIDENCE (Review Comparison) -->
+    <section
+        class="min-h-screen flex flex-col items-center justify-center bg-white text-accent p-6 border-t-8 border-secondary">
+        <h2 class="text-4xl md:text-6xl font-urbanist font-extrabold text-accent mb-16 text-shadow-brutal">
+            THE EVIDENCE: WHICH RESPONSE WINS?
+        </h2>
+
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl">
+
+            <!-- Review Card 1: IGNORED (Failure) -->
+            <div class="flex flex-col border-brutal shadow-brutal p-6 bg-gray-50">
+                <h3 class="text-3xl font-urbanist font-bold mb-4 text-secondary">Scenario 1: Ignored</h3>
+
+                <div class="bg-white p-4 mb-4 border-brutal italic text-sm">
+                    <p class="font-bold mb-2">Customer Review (3 Stars):</p>
+                    <p>"The staff were friendly, but the wait time for my coffee was nearly 15 minutes, even though it
+                        wasn't busy. Good coffee, but the speed needs work."</p>
+                </div>
+
+                <div class="bg-gray-200 p-4 mb-4 border-brutal text-sm text-center font-bold">
+                    <p>BUSINESS RESPONSE: <span class="text-secondary">NONE</span></p>
+                </div>
+
+                <p
+                    class="font-bold text-lg mt-auto text-center p-3 bg-secondary text-primary border-brutal pulse-damage">
+                    OUTCOME: Customer feels unheard. Lost sale is confirmed.
+                </p>
+            </div>
+
+            <!-- Review Card 2: GENERIC (Wasted Effort) -->
+            <div class="flex flex-col border-brutal shadow-brutal p-6 bg-gray-50">
+                <h3 class="text-3xl font-urbanist font-bold mb-4 text-accent">Scenario 2: Generic Crap</h3>
+
+                <div class="bg-white p-4 mb-4 border-brutal italic text-sm">
+                    <p class="font-bold mb-2">Customer Review (3 Stars):</p>
+                    <p>"The staff were friendly, but the wait time for my coffee was nearly 15 minutes, even though it
+                        wasn't busy. Good coffee, but the speed needs work."</p>
+                </div>
+
+                <div class="bg-gray-200 p-4 mb-4 border-brutal text-sm">
+                    <p class="font-bold mb-2 text-accent">BUSINESS RESPONSE:</p>
+                    <p>Thank you for your feedback. We appreciate your business and hope to see you again soon.</p>
+                </div>
+
+                <p class="font-bold text-lg mt-auto text-center p-3 bg-gray-400 text-accent border-brutal">
+                    OUTCOME: Feels automated and fake. Feedback wasted.
+                </p>
+            </div>
+
+            <!-- Review Card 3: TOOL RESPONSE (Goldmine) -->
+            <div class="flex flex-col border-brutal shadow-brutal p-6 bg-gray-50">
+                <h3 class="text-3xl font-urbanist font-bold mb-4 text-highlight">Scenario 3: Your Solution</h3>
+
+                <div class="bg-white p-4 mb-4 border-brutal italic text-sm">
+                    <p class="font-bold mb-2">Customer Review (3 Stars):</p>
+                    <p>"The staff were friendly, but the wait time for my coffee was nearly 15 minutes, even though it
+                        wasn't busy. Good coffee, but the speed needs work."</p>
+                </div>
+
+                <div class="bg-gray-200 p-4 mb-4 border-brutal text-sm">
+                    <p class="font-bold mb-2 text-accent">BUSINESS RESPONSE (Automated/Smart):</p>
+                    <p>We sincerely apologize for the 15-minute wait time you experienced. We're actively training new
+                        baristas to improve speed! To make up for the delay, please accept a free pastry on your next
+                        visit.</p>
+                </div>
+
+                <p
+                    class="font-bold text-lg mt-auto text-center p-3 bg-highlight text-accent border-brutal gold-shimmer shake-on-hover">
+                    OUTCOME: Customer retained. Feedback actioned.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Section 4: CALCULATOR AND CTA (Dark Blue BG, Light Text) -->
+    <section id="calculator"
+        class="min-h-screen flex flex-col items-center justify-center bg-accent text-primary p-6 border-t-8 border-secondary">
+        <div class="text-center w-full max-w-4xl">
+            <!-- Main Loss Text (Light Text on Dark BG) -->
+            <h2 class="text-3xl md:text-5xl font-roboto font-bold text-primary mb-12">
+                Another missed review? Another lost customer. Another win for your competitors.
+            </h2>
+
+            <!-- Flashing Gold Bar / Headline for Calculator (High-Contrast) -->
+            <div
+                class="bg-highlight text-accent font-urbanist text-3xl md:text-5xl font-black p-4 mb-12 border-brutal shadow-brutal pulse-damage gold-shimmer inline-block shake-on-hover">
+                CALCULATE YOUR UNCLAIMED INCOME!
+            </div>
+
+            <!-- Calculator Card (White BG for focus) -->
+            <div class="bg-white p-8 md:p-12 border-brutal shadow-brutal text-accent w-full max-w-md mx-auto mb-12">
+                <h3 class="text-2xl font-urbanist font-bold mb-6 text-accent">Find Your Unclaimed Income Goldmine</h3>
+
+                <!-- Assumption Note (Dark text on white card) -->
+                <p class="text-sm text-gray-600 mb-6 border-l-4 border-highlight pl-3 italic">
+                    Assumes a 5% baseline conversion (No Reply) vs. 7% (Reply to All).
+                </p>
+
+                <!-- Input 1: Monthly Views -->
+                <div class="mb-6 text-left">
+                    <label for="monthlyViews" class="block font-roboto font-bold mb-2">Monthly Website/Google
+                        Views:</label>
+                    <input type="number" id="monthlyViews" placeholder="e.g., 2500"
+                        class="w-full p-3 border-brutal bg-gray-50 text-xl font-bold text-accent focus:outline-none focus:bg-white"
+                        min="0">
+                </div>
+
+                <!-- Input 2: Average Spend -->
+                <div class="mb-8 text-left">
+                    <label for="avgSpend" class="block font-roboto font-bold mb-2">Average Spend per New Customer
+                        (£):</label>
+                    <input type="number" id="avgSpend" placeholder="e.g., 100"
+                        class="w-full p-3 border-brutal bg-gray-50 text-xl font-bold text-accent focus:outline-none focus:bg-white"
+                        min="0">
+                </div>
+
+                <!-- Output Display -->
+                <div id="resultContainer" class="hidden mt-8">
+                    <p class="font-roboto text-lg mb-4 font-bold">Your UNCLAIMED ANNUAL INCOME is:</p>
+                    <!-- Flashing Gold Result Box -->
+                    <div id="extraRevenue"
+                        class="text-5xl md:text-7xl font-urbanist font-black text-secondary border-brutal p-4 pulse-damage inline-block bg-accent text-highlight">
+                        £0
+                    </div>
+                </div>
+
+                <!-- Calculation Button --><button onclick="calculateRevenue()"
+                    class="w-full bg-secondary text-primary font-urbanist text-2xl px-8 py-4 mt-6 transition-all duration-300 inline-block border-brutal shadow-brutal font-black hover:bg-red-600 shake-on-hover">
+                    COUNT THE CASH
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="w-full text-center py-4 text-xs text-primary bg-gray-900 mt-0">
+        <p>&copy; 2024 MeteorStrike. Automate your reputation.</p>
+    </footer>
+
+    <script>
+        // Note: The conversion rate assumption (0.05 vs 0.07) is key to the marketing premise.
+        function calculateRevenue() {
+            // Get inputs, defaulting to 0 if empty or invalid
+            const views = parseFloat(document.getElementById('monthlyViews').value) || 0;
+            const spend = parseFloat(document.getElementById('avgSpend').value) || 0;
+
+            // Assumptions
+            const CONVERSION_NO_REPLY = 0.05; // 5% base
+            const CONVERSION_UPLIFT_FACTOR = 1.4; // 40% uplift
+            const CONVERSION_WITH_REPLY = CONVERSION_NO_REPLY * CONVERSION_UPLIFT_FACTOR; // 7%
+
+            // Extra conversion rate achieved by replying (0.07 - 0.05 = 0.02)
+            const EXTRA_CONVERSION_RATE = CONVERSION_WITH_REPLY - CONVERSION_NO_REPLY;
+
+            // 1. Calculate Extra Customers per Month
+            const extraCustomers = views * EXTRA_CONVERSION_RATE;
+
+            // 2. Calculate Extra Revenue per Month (Unclaimed Income)
+            const extraRevenueMonthly = extraCustomers * spend;
+
+            // 3. Calculate Extra Revenue per Year (ANNUAL INCOME)
+            const extraRevenueAnnual = extraRevenueMonthly * 12;
+
+            const revenueDisplay = document.getElementById('extraRevenue');
+            const resultContainer = document.getElementById('resultContainer');
+
+            const messageBox = document.createElement('div');
+            messageBox.className = 'fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50';
+            messageBox.innerHTML = `
+                <div class="bg-white p-6 border-brutal shadow-brutal text-accent max-w-sm text-center">
+                    <p class="text-xl font-bold mb-4">Input Required</p>
+                    <p>Please enter valid numbers for Monthly Views and Average Spend to calculate your potential income.</p>
+                    <button onclick="this.parentNode.parentNode.remove()" class="mt-4 bg-secondary text-primary font-bold px-4 py-2 border-brutal hover:bg-red-600 shake-on-hover">OK</button>
+                </div>
+            `;
+
+
+            if (views > 0 && spend > 0) {
+                // Format the number to currency (UK format used due to £ symbol)
+                const formatter = new Intl.NumberFormat('en-GB', {
+                    style: 'currency',
+                    currency: 'GBP',
+                    minimumFractionDigits: 0,
+                    maximumFractionDigits: 0,
+                });
+
+                // Display the calculated revenue, rounded to the nearest whole number
+                const roundedRevenue = Math.round(extraRevenueAnnual);
+                revenueDisplay.textContent = formatter.format(roundedRevenue);
+
+                resultContainer.classList.remove('hidden');
+            } else {
+                // Hide results and display custom modal instead of alert()
+                resultContainer.classList.add('hidden');
+                document.body.appendChild(messageBox);
+            }
+        }
+    </script>
+</body>
+
+</html>

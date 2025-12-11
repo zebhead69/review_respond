@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MeteorStrike - Stop Ignoring Your Customers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@900&family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#d5daeb',
+                        secondary: '#ee4266',
+                        accent: '#1c1259',
+                        highlight: '#fcd307',
+                    },
+                    fontFamily: {
+                        urbanist: ['Urbanist', 'sans-serif'],
+                        roboto: ['Roboto', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Damage/Blood effects */
+        .pulse-damage {
+            animation: pulseDamage 1.5s ease-in-out infinite;
+        }
+        @keyframes pulseDamage {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.02);
+                opacity: 0.9;
+            }
+        }
+        .fade-blood {
+            animation: fadeBlood 3s ease-in forwards;
+        }
+        @keyframes fadeBlood {
+            0% {
+                background-color: rgba(75, 85, 99, 0.8);
+            }
+            100% {
+                background-color: rgba(220, 38, 38, 0.4);
+            }
+        }
+        .text-shadow-brutal {
+            text-shadow: 4px 4px 0px rgba(0,0,0,0.8);
+        }
+        .border-brutal {
+            border: 5px solid #000;
+            box-shadow: 8px 8px 0px rgba(0,0,0,0.9);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-primary font-roboto">
+    
+    <section class="min-h-screen flex items-center justify-center bg-gray-900 relative overflow-hidden py-20">
+        <div class="container mx-auto px-6 text-center">
+            <div class="max-w-4xl mx-auto">
+                <p class="text-2xl md:text-4xl font-roboto font-bold text-primary p-8 border-brutal pulse-damage fade-blood leading-relaxed inline-block">
+                    Another unanswered review.<br/>
+                    <span class="text-3xl md:text-5xl block mt-2">Another lost customer.</span><br/>
+                    <span class="text-secondary text-5xl md:text-7xl font-black block mt-4">Another win for your competitor.</span>
+                </p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        
+    .pulse-damage {
+        animation: pulseDamage 1.5s ease-in-out infinite;
+    }
+    @keyframes pulseDamage {
+        0%, 100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+        50% {
+            transform: scale(1.02);
+            opacity: 0.9;
+        }
+    }
+    .fade-blood {
+        animation: fadeBlood 3s ease-in forwards;
+    }
+    @keyframes fadeBlood {
+        0% {
+            background-color: rgba(55, 65, 81, 0.8);
+        }
+        100% {
+            background-color: rgba(220, 38, 38, 0.3);
+        }
+    }
+</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MeteorStrike - Stop Ignoring Your Customers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@900&family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#d5daeb',
+                        secondary: '#ee4266',
+                        accent: '#1c1259',
+                        highlight: '#fcd307',
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                        roboto: ['Roboto', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+
+<p
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center bg-gray-800 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gray-800 opacity-95"></div>
+        <img src="https://huggingface.co/spaces/zebhead/brutal-feedback-blitzkrieg/resolve/main/images/Image%2018-11-2025%20at%2018.33.jpeg" 
+            
+             class="absolute inset-0 w-full h-full object-cover opacity-20">
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="bg-gray-700 border-brutal p-8 mb-8 inline-block pulse-warning">
+                <h1 class="text-3xl md:text-3xl font-urbanist text-secondary font-black text-shadow-brutal leading-none">
+                    88% of businesses ignore their customer reviews<br/>
+                    <span class="text-secondary text-8xl md:text-8xl font-urbanist">CONGRATULATIONS ON BEING AVERAGE</span>
+                </h1>
+            </div>
+            <p class="text-3xl md:text-4xl font-roboto font-bold text-primary mb-8 bg-gray-700/80 p-4 inline-block">
+                Your customers are talking about you.<br/>
+                <span class="text-secondary text-4xl md:text-5xl font-black">Are you listening?</span>
+            </p>
+            
+            <a href="#problem" class="bg-secondary hover:bg-highlight text-accent font-urbanist text-2xl md:text-3xl px-12 py-6 transition-all duration-300 inline-block border-brutal shake-on-hover font-black">
+                SEE THE DAMAGE →
+            </a>
+        </div>
+    </section>
+ <p class="text-3xl md:text-4xl font-roboto font-bold text-primary mb-12 bg-gray-700/80 p-4 inline-block">
+    88% of businesses ignore their customers<br/>
+    <span class="text-secondary text-5xl">Don't be one of them</span>
+</p>
