@@ -1,7 +1,30 @@
+/**
+ * Custom navbar web component with brutalist styling
+ * @extends {HTMLElement}
+ */
 class CustomNavbar extends HTMLElement {
+    /**
+     * Creates a new CustomNavbar instance
+     */
+    constructor() {
+        super();
+        /** @type {ShadowRoot | null} */
+        this._shadowRoot = null;
+    }
+
+    /**
+     * Lifecycle callback invoked when element is connected to DOM
+     * @returns {void}
+     */
     connectedCallback() {
-        this.attachShadow({ mode: 'open' });
-        this.shadowRoot.innerHTML = `
+        this._shadowRoot = this.attachShadow({ mode: 'open' });
+
+        if (!this._shadowRoot) {
+            console.error('Failed to create shadow root for CustomNavbar');
+            return;
+        }
+
+        this._shadowRoot.innerHTML = `
             <style>
                 :host {
                     display: block;
@@ -107,4 +130,8 @@ class CustomNavbar extends HTMLElement {
     }
 }
 
+/**
+ * Register the custom navbar element
+ * @type {void}
+ */
 customElements.define('custom-navbar', CustomNavbar);

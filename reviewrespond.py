@@ -489,50 +489,152 @@ html
 </section>
 
 <script>
-function calculateDamage() {
-    // Get input values
-    const badReviews = parseFloat(document.getElementById('badReviews').value) || 0;
-    const orderValue = parseFloat(document.getElementById('orderValue').value) || 0;
-    const responseRate = parseFloat(document.getElementById('responseRate').value) || 0;
-    
+/**
+ * @typedef {Object} CalculationInputs
+ * @property {number} badReviews - Number of bad reviews per month
+ * @property {number} orderValue - Average order value in currency
+ * @property {number} responseRate - Percentage of reviews being responded to
+ */
+
+/**
+ * @typedef {Object} CalculationResults
+ * @property {number} ignoredReviews - Number of reviews being ignored
+ * @property {number} lostCustomers - Number of customers lost
+ * @property {number} monthlyLoss - Monthly revenue loss
+ * @property {number} yearlyLoss - Yearly revenue loss
+ */
+
+/**
+ * Retrieves and validates input values from form fields
+ * @returns {CalculationInputs | null} Input values or null if validation fails
+ */
+function getInputValues() {
+    /** @type {HTMLInputElement | null} */
+    const badReviewsInput = document.getElementById('badReviews');
+    /** @type {HTMLInputElement | null} */
+    const orderValueInput = document.getElementById('orderValue');
+    /** @type {HTMLInputElement | null} */
+    const responseRateInput = document.getElementById('responseRate');
+
+    if (!badReviewsInput || !orderValueInput || !responseRateInput) {
+        console.error('Required input elements not found');
+        return null;
+    }
+
+    const badReviews = parseFloat(badReviewsInput.value) || 0;
+    const orderValue = parseFloat(orderValueInput.value) || 0;
+    const responseRate = parseFloat(responseRateInput.value) || 0;
+
+    return { badReviews, orderValue, responseRate };
+}
+
+/**
+ * Calculates business impact metrics from input values
+ * @param {CalculationInputs} inputs - The input values
+ * @returns {CalculationResults} Calculated results
+ */
+function calculateMetrics(inputs) {
     // Calculate ignored reviews
-    const ignoredReviews = badReviews * (1 - (responseRate / 100));
-    
+    const ignoredReviews = inputs.badReviews * (1 - (inputs.responseRate / 100));
+
     // Each ignored review = 15 lost customers
     const lostCustomers = Math.round(ignoredReviews * 15);
-    
+
     // Calculate monthly loss
-    const monthlyLoss = Math.round(lostCustomers * orderValue);
-    
+    const monthlyLoss = Math.round(lostCustomers * inputs.orderValue);
+
     // Calculate yearly loss
     const yearlyLoss = monthlyLoss * 12;
-    
+
+    return { ignoredReviews, lostCustomers, monthlyLoss, yearlyLoss };
+}
+
+/**
+ * Updates DOM elements with calculated results
+ * @param {CalculationResults} results - The calculated results
+ * @param {number} orderValue - The average order value
+ * @returns {boolean} True if update successful, false otherwise
+ */
+function updateResultsDisplay(results, orderValue) {
+    /** @type {HTMLElement | null} */
+    const monthlyLossEl = document.getElementById('monthlyLoss');
+    /** @type {HTMLElement | null} */
+    const ignoredReviewsEl = document.getElementById('ignoredReviews');
+    /** @type {HTMLElement | null} */
+    const lostCustomersEl = document.getElementById('lostCustomers');
+    /** @type {HTMLElement | null} */
+    const avgOrderEl = document.getElementById('avgOrder');
+    /** @type {HTMLElement | null} */
+    const totalLossEl = document.getElementById('totalLoss');
+    /** @type {HTMLElement | null} */
+    const yearlyLossEl = document.getElementById('yearlyLoss');
+    /** @type {HTMLElement | null} */
+    const resultsContainer = document.getElementById('results');
+
+    if (!monthlyLossEl || !ignoredReviewsEl || !lostCustomersEl ||
+        !avgOrderEl || !totalLossEl || !yearlyLossEl || !resultsContainer) {
+        console.error('Required result elements not found');
+        return false;
+    }
+
     // Update the results
-    document.getElementById('monthlyLoss').textContent = '£' + monthlyLoss.toLocaleString();
-    document.getElementById('ignoredReviews').textContent = Math.round(ignoredReviews);
-    document.getElementById('lostCustomers').textContent = lostCustomers.toLocaleString();
-    document.getElementById('avgOrder').textContent = orderValue;
-    document.getElementById('totalLoss').textContent = '£' + monthlyLoss.toLocaleString();
-    document.getElementById('yearlyLoss').textContent = yearlyLoss.toLocaleString();
-    
+    monthlyLossEl.textContent = '£' + results.monthlyLoss.toLocaleString();
+    ignoredReviewsEl.textContent = Math.round(results.ignoredReviews).toString();
+    lostCustomersEl.textContent = results.lostCustomers.toLocaleString();
+    avgOrderEl.textContent = orderValue.toString();
+    totalLossEl.textContent = '£' + results.monthlyLoss.toLocaleString();
+    yearlyLossEl.textContent = results.yearlyLoss.toLocaleString();
+
     // Show results
-    document.getElementById('results').classList.remove('hidden');
-    
+    resultsContainer.classList.remove('hidden');
+
     // Scroll to results
-    document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+    return true;
+}
+
+/**
+ * Main function to calculate and display damage from ignored reviews
+ * @returns {void}
+ */
+function calculateDamage() {
+    const inputs = getInputValues();
+
+    if (!inputs) {
+        return;
+    }
+
+    const results = calculateMetrics(inputs);
+    updateResultsDisplay(results, inputs.orderValue);
+}
+
+/**
+ * Initializes event listeners for calculator inputs
+ * @returns {void}
+ */
+function initializeCalculator() {
+    /** @type {NodeListOf<HTMLInputElement>} */
+    const inputs = document.querySelectorAll('#badReviews, #orderValue, #responseRate');
+
+    /**
+     * Handles keypress event on input fields
+     * @param {KeyboardEvent} e - The keyboard event
+     * @returns {void}
+     */
+    function handleKeyPress(e) {
+        if (e.key === 'Enter') {
+            calculateDamage();
+        }
+    }
+
+    inputs.forEach((input) => {
+        input.addEventListener('keypress', handleKeyPress);
+    });
 }
 
 // Allow Enter key to trigger calculation
-document.addEventListener('DOMContentLoaded', function() {
-    const inputs = document.querySelectorAll('#badReviews, #orderValue, #responseRate');
-    inputs.forEach(input => {
-        input.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                calculateDamage();
-            }
-        });
-    });
-});
+document.addEventListener('DOMContentLoaded', initializeCalculator);
 </script>
 What this does:
 
